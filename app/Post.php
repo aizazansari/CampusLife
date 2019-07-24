@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    // tells laravel we're checking the data thats coming so you dont need to guard
+    protected $guarded = [];
+
     public function user(){
       return $this->belongsTo(User::class);
     }
