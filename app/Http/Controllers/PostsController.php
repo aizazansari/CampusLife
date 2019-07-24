@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -23,6 +24,8 @@ class PostsController extends Controller
 
       //default is some private folder which we cant access so we change path of image
       $imagePath = request('image')->store('uploads','public'); //stores in storage/app/public/uploads
+      $image=Image::make(public_path("storage/{$imagePath}"))->fit(300,300);
+      $image->save();
       //link this directory with the public/storage/uploads which is accesible to user
       auth()->user()->posts()->create([
         'caption' => $data['caption'],
