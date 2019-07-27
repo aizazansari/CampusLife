@@ -24,7 +24,7 @@ class PostsController extends Controller
 
       //default is some private folder which we cant access so we change path of image
       $imagePath = request('image')->store('uploads','public'); //stores in storage/app/public/uploads
-      $image=Image::make(public_path("storage/{$imagePath}"))->fit(300,300);
+      $image=Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
       $image->save();
       //link this directory with the public/storage/uploads which is accesible to user
       auth()->user()->posts()->create([
@@ -32,5 +32,9 @@ class PostsController extends Controller
         'image' => $imagePath,
       ]);
       return redirect('/profile/' . auth()->user()->id);
+    }
+
+    public function show(\App\Post $post){ //by doing App\Post you automatically fetch the post that id belongs to
+      return view('posts/show',compact('post'));//passes post as post
     }
 }

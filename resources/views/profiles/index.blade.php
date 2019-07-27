@@ -16,6 +16,7 @@
           <div class="pr-3"><strong class="pr-1">26.8k</strong>followers</div>
           <div class="pr-3"><strong class="pr-1">224</strong>following</div>
         </div>
+        <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
         <div class="pt-4"><strong> {{$user->profile->title}} </strong> </div>
         <div> {{$user->profile->description}} </div>
         <div> <a href="#">{{$user->profile->url}}</a></div>
@@ -25,7 +26,9 @@
     <div class="row p-5">
       @foreach($user->posts as $post)
       <div class="col-4 pd-4">
-        <img src="/storage/{{$post->image}}"/>
+        <a href="/post/{{$post->id}}">
+          <img src="/storage/{{$post->image}}" class="w-100"/>
+        </a>
       </div>
       @endforeach
     </div>
