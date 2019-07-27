@@ -23,5 +23,5 @@ Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.upda
 
 
 Route::get('/post/create','PostsController@create');
-Route::post('/post','PostsController@store');
 Route::get('/post/{post}','PostsController@show');
+Route::post('/post','PostsController@store');
