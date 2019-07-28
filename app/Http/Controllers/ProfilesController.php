@@ -24,21 +24,22 @@ class ProfilesController extends Controller
   public function update(User $user){
     $this->authorize('update',$user->profile);
     $data = request()->validate([
-      'title' => 'required',
-      'description' => 'required',
+      'title' => '',
+      'description' => '',
       'url' => 'url',
       'image' => 'image',
     ]);
     //auth ensures we only edit authenticated user
-    
+
     if (request('image')){
       $imagePath = request('image')->store('profile','public'); //stores in storage/app/public/uploads
       $image=Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
       $image->save();
+      $imageArray = ['image' => $imagePath];
     }
     auth()->user()->profile->update(array_merge(
       $data,
-      ['image => $imagePath']
+      $imageArray ?? []
     ));
     return redirect("/profile/{$user->id}");
   }
