@@ -19,9 +19,9 @@
           @endcan
         </div>
         <div class="d-flex">
-          <div class="pr-3"><strong class="pr-1">{{$user->posts->count()}}</strong>posts</div>
-          <div class="pr-3"><strong class="pr-1">{{$user->profile->followers->count()}}</strong>followers</div>
-          <div class="pr-3"><strong class="pr-1">{{$user->following->count()}}</strong>following</div>
+          <div class="pr-3"><strong class="pr-1">{{$postsCount}}</strong>posts</div>
+          <div class="pr-3"><strong class="pr-1">{{$followersCount}}</strong>followers</div>
+          <div class="pr-3"><strong class="pr-1">{{$followingCount}}</strong>following</div>
         </div>
         @can('update',$user->profile)
           <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
