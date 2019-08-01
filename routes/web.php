@@ -11,10 +11,13 @@
 |
 */
 
-
+use App\Mail\NewUserWelcomeMail;
 
 Auth::routes();
 
+Route::get('/email',function(){
+  return new NewUserWelcomeMail();
+});
 Route::get('/',function(){
   return view('welcome');
 });
