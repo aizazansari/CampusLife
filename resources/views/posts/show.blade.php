@@ -19,7 +19,7 @@
               </a>
             </div>
           </div>
-          <rsvp-button post="{{$post->id}}"></rsvp-button>
+          <rsvp-button post="{{$post->id}}" attending="{{$attends}}"></rsvp-button>
         </div>
         <hr>
       <p>
