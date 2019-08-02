@@ -30,9 +30,14 @@
           </span> {{$post->caption}}
         </p>
         <hr>
-        @foreach($post->attendants as $attendant)
-          <p><strong>{{$attendant->username}}</strong> is attending</p>
+        @foreach($attendingPaginated as $attendant)
+          <p style="margin-bottom:0px;"><strong>{{$attendant->username}}</strong> is attending</p>
         @endforeach
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            {{$attendingPaginated->links()}}
+          </div>
+        </div>
   </div>
 </div>
 </div>

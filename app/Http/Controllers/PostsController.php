@@ -45,6 +45,7 @@ class PostsController extends Controller
 
     public function show(\App\Post $post){ //by doing App\Post you automatically fetch the post that id belongs to
       $attends=(auth()->user()) ? auth()->user()->attending->contains($post->id) : false;
-      return view('posts/show',compact('post','attends'));//passes post as post
+      $attendingPaginated=$post->attendants()->paginate(15);
+      return view('posts/show',compact('post','attends','attendingPaginated'));//passes post as post
     }
 }
