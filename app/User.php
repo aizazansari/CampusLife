@@ -61,6 +61,10 @@ class User extends Authenticatable
       return $this->belongsToMany(Profile::class);
     }
 
+    public function attending(){
+      return $this->belongsToMany(Post::class);
+    }
+
     public function profile(){
       return $this->hasOne(Profile::class);
     }

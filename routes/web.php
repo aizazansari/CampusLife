@@ -15,9 +15,9 @@ use App\Mail\NewUserWelcomeMail;
 
 Auth::routes();
 
-Route::get('/email',function(){
-  return new NewUserWelcomeMail();
-});
+// Route::get('/email',function(){
+//   return new NewUserWelcomeMail();
+// });
 Route::get('/',function(){
   return view('welcome');
 });
@@ -32,3 +32,5 @@ Route::get('/home','PostsController@index');
 Route::get('/post/create','PostsController@create');
 Route::get('/post/{post}','PostsController@show');
 Route::post('/post','PostsController@store');
+
+Route::post('attend/{post}', 'AttendController@store');

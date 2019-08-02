@@ -19,6 +19,7 @@
               </a>
             </div>
           </div>
+          <rsvp-button post="{{$post->id}}"></rsvp-button>
         </div>
         <hr>
       <p>
