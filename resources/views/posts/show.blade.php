@@ -29,7 +29,10 @@
             </a>
           </span> {{$post->caption}}
         </p>
-
+        <hr>
+        @foreach($post->attendants as $attendant)
+          <p><strong>{{$attendant->username}}</strong> is attending</p>
+        @endforeach
   </div>
 </div>
 </div>
